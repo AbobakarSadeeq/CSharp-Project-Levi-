@@ -35,5 +35,11 @@ namespace CSharp_Project_Levi.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("First")]
+        public ActionResult First()
+        {
+            return Ok("Shukar");
+        }
     }
 }
