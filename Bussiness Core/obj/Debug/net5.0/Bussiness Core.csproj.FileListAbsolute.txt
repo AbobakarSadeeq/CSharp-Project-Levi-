@@ -1,0 +1,11 @@
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.AssemblyInfoInputs.cache
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.AssemblyInfo.cs
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.csproj.CoreCompileInputs.cache
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\bin\Debug\net5.0\Bussiness Core.deps.json
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\bin\Debug\net5.0\Bussiness Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\bin\Debug\net5.0\ref\Bussiness Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\bin\Debug\net5.0\Bussiness Core.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\ref\Bussiness Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Bussiness Core\obj\Debug\net5.0\Bussiness Core.pdb

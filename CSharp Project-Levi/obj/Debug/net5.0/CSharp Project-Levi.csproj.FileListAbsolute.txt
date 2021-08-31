@@ -11,7 +11,6 @@ C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.csproj.AssemblyReference.cache
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.AssemblyInfoInputs.cache
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.AssemblyInfo.cs
@@ -27,3 +26,64 @@ C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\ref\CSharp Project-Levi.dll
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.pdb
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.genruntimeconfig.cache
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\CloudinaryDotNet.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Google.Apis.Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Google.Apis.Storage.v1.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Extensions.WebEncoders.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Bussiness Core.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\DataAccess.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Presentation.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Bussiness Core.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\DataAccess.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\bin\Debug\net5.0\Presentation.pdb
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\obj\Debug\net5.0\CSharp Project-Levi.csproj.AssemblyReference.cache
