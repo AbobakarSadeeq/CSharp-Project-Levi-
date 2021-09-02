@@ -5,11 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\DataContext Class\" />
     <Folder Include="Data\UnitOfWork\" />
     <Folder Include="Data\Repositories Implementation\" />
     <Folder Include="Data\Services Implementation\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
