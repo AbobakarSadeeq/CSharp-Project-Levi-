@@ -1517,6 +1517,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.9",
+          "Microsoft.EntityFrameworkCore": "5.0.9",
           "Microsoft.Extensions.Identity.Stores": "5.0.9"
         },
         "compile": {

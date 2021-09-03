@@ -1,4 +1,10 @@
+using Bussiness_Core.Entities_Repositories;
+using Bussiness_Core.IServices;
+using Bussiness_Core.IUnitOfWork;
 using DataAccess.Data.DataContext_Class;
+using DataAccess.Data.Repositories_Implementation;
+using DataAccess.Data.Services_Implementation;
+using DataAccess.Data.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Presentation.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +39,31 @@ namespace CSharp_Project_Levi
 
             services.AddDbContextPool<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // Auto Mapper
+            services.AddAutoMapper(typeof(AutoMappers));
+
+            // Adding Service to Register or make the objects by its own..
+
+            // Registrating IUnitOfWork
+            services.AddScoped<IUnitofWork, UnitofWork>();
+
+            //Registrating Services...
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<IColorService, ColorService>();
+            services.AddTransient<IinternetNetworkService, InternetNetworkService>();
+            services.AddTransient<IOperatingSystemService, OperatingSystemService>();
+            services.AddTransient<IOSVersionService, OSVersionService>();
+
+
+
+            // Nested Include Error.
+            services.AddControllersWithViews()
+             .AddNewtonsoftJson(options =>
+             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
