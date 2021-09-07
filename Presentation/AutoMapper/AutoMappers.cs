@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Bussiness_Core.Entities;
 using Presentation.ViewModels;
+using Presentation.ViewModels.MobileViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace Presentation.AutoMapper
             CreateMap<InternetNetwork, InternetNetworkViewModel>().ReverseMap();
             CreateMap<OperatingSystems, OperatingSystemViewModel>().ReverseMap();
             CreateMap<OperatingSystemVersion, OperatingSystemVersionViewModel>().ReverseMap();
+            CreateMap<Mobile, MobileViewModel>().ReverseMap();
+            CreateMap<Mobile, InsertMobileViewModel>().ReverseMap();
+            CreateMap<Mobile, UpdateMobileViewModel>().ReverseMap();
+
+
+
+
 
 
 

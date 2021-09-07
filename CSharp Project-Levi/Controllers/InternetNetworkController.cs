@@ -27,7 +27,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetInternetNetwork(int Id)
         {
             var detailData = await _InternetNetworkService.GetInternetNetwork(Id);
-            var convertingData = _mapper.Map<InternetNetwork>(detailData);
+            var convertingData = _mapper.Map<InternetNetworkViewModel>(detailData);
             return Ok(convertingData);
         }
 
@@ -35,7 +35,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetAllInternetNetwork()
         {
             var fullDetails = await _InternetNetworkService.GetInternetNetworks();
-            var convertingData = _mapper.Map<List<InternetNetwork>>(fullDetails);
+            var convertingData = _mapper.Map<List<InternetNetworkViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]

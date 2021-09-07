@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bussiness_Core.Entities
 {
-  public  class OperatingSystems
-    {
+  public class OperatingSystems
+  {
         [Key]
         public int OperatingSystem_Id { get; set; }
         public string OperatingName { get; set; }
         public DateTime? Created_At { get; set; } = DateTime.Now;
-    }
+  }
 }

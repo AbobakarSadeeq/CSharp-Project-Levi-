@@ -27,7 +27,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetOSVersion(int Id)
         {
             var detailData = await _OSVersionService.GetOperatingSystemVersion(Id);
-            var convertingData = _mapper.Map<OperatingSystemVersion>(detailData);
+            var convertingData = _mapper.Map<OperatingSystemVersionViewModel>(detailData);
             return Ok(convertingData);
         }
 
@@ -35,7 +35,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetAllOSVersion()
         {
             var fullDetails = await _OSVersionService.GetOperatingSystemVersions();
-            var convertingData = _mapper.Map<List<OperatingSystemVersion>>(fullDetails);
+            var convertingData = _mapper.Map<List<OperatingSystemVersionViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]

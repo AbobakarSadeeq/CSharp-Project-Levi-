@@ -25,6 +25,8 @@ namespace DataAccess.Data.UnitOfWork
 
         public IOSVersionRepository _OSVersionRepository { get; init; }
 
+        public IMobileRepository _MobileRepository { get; init; }
+
         public UnitofWork(DataContext DataContext) 
         {
             // Last Database Connection.
@@ -38,6 +40,10 @@ namespace DataAccess.Data.UnitOfWork
             _IinternetNetworkRepository = new InternetNetworkRepository(_DataContext);
             _OperatingSystemRepository = new OperatingSystemRepository(_DataContext);
             _OSVersionRepository = new OSVersionRepository(_DataContext);
+            _MobileRepository = new MobileRepository(_DataContext);
+
+
+
         }
 
         public async Task<int> CommitAsync()

@@ -27,7 +27,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetColor(int Id)
         {
             var detailData = await _ColorService.GetColor(Id);
-            var convertingData = _mapper.Map<Color>(detailData);
+            var convertingData = _mapper.Map<ColorViewModel>(detailData);
             return Ok(convertingData);
         }
 
@@ -35,7 +35,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetAllColor()
         {
             var fullDetails = await _ColorService.GetColors();
-            var convertingData = _mapper.Map<List<Color>>(fullDetails);
+            var convertingData = _mapper.Map<List<ColorViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]

@@ -27,7 +27,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetOperatingSystem(int Id)
         {
             var detailData = await _OperatingSystemService.GetOperatingSystem(Id);
-            var convertingData = _mapper.Map<OperatingSystems>(detailData);
+            var convertingData = _mapper.Map<OperatingSystemViewModel>(detailData);
             return Ok(convertingData);
         }
 
@@ -35,7 +35,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetAllOperatingSystem()
         {
             var fullDetails = await _OperatingSystemService.GetOperatingSystems();
-            var convertingData = _mapper.Map<List<OperatingSystems>>(fullDetails);
+            var convertingData = _mapper.Map<List<OperatingSystemViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]

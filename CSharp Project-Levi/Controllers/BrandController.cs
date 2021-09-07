@@ -27,19 +27,19 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetBrand(int Id)
         {
             var detailData = await _BrandService.GetBrand(Id);
-            var convertingData = _mapper.Map<Brand>(detailData);
+            var convertingData = _mapper.Map<BrandViewModel>(detailData);
             return Ok(convertingData);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCategory()
+        public async Task<IActionResult> GetAllBrand()
         {
             var fullDetails = await _BrandService.GetBrands();
-            var convertingData = _mapper.Map<List<Brand>>(fullDetails);
+            var convertingData = _mapper.Map<List<BrandViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateCategory(BrandViewModel viewModel)
+        public async Task<IActionResult> CreateBrand(BrandViewModel viewModel)
         {
             var convertingModel = _mapper.Map<Brand>(viewModel);
             await _BrandService.InsertBrand(convertingModel);

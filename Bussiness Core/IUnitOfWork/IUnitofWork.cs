@@ -16,6 +16,8 @@ namespace Bussiness_Core.IUnitOfWork
         IinternetNetworkRepository _IinternetNetworkRepository { get; }
         IOperatingSystemRepository _OperatingSystemRepository { get; }
         IOSVersionRepository _OSVersionRepository{ get; }
+        IMobileRepository _MobileRepository { get; }
+
 
         Task<int> CommitAsync();
         void Dispose();

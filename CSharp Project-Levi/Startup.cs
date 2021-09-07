@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Presentation.AppSettingClasses;
 using Presentation.AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,8 @@ namespace CSharp_Project_Levi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // Inject AppSettings
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
             services.AddDbContextPool<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -55,6 +57,8 @@ namespace CSharp_Project_Levi
             services.AddTransient<IinternetNetworkService, InternetNetworkService>();
             services.AddTransient<IOperatingSystemService, OperatingSystemService>();
             services.AddTransient<IOSVersionService, OSVersionService>();
+            services.AddTransient<IMobileService, MobileService>();
+
 
 
 

@@ -27,7 +27,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetCategory(int Id)
         {
             var detailData = await _categoryService.GetCategory(Id);
-            var convertingData = _mapper.Map<Category>(detailData);
+            var convertingData = _mapper.Map<CategoryViewModel>(detailData);
             return Ok(convertingData);
         }
 
@@ -35,7 +35,7 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> GetAllCategory()
         {
             var fullDetails = await _categoryService.GetCategories();
-            var convertingData = _mapper.Map<List<Category>>(fullDetails);
+            var convertingData = _mapper.Map<List<CategoryViewModel>>(fullDetails);
             return Ok(convertingData);
         }
         [HttpPost]

@@ -14,6 +14,5 @@ namespace Bussiness_Core.Entities
         public string CategoryName { get; set; }
         public DateTime? Created_At { get; set; } = DateTime.Now;
 
-
     }
 }

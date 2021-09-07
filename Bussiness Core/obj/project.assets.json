@@ -862,7 +862,8 @@
     "net5.0": [
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.9",
       "Microsoft.EntityFrameworkCore >= 5.0.9",
-      "Microsoft.Extensions.Identity.Stores >= 5.0.9"
+      "Microsoft.Extensions.Identity.Stores >= 5.0.9",
+      "System.ComponentModel.Annotations >= 5.0.0"
     ]
   },
   "packageFolders": {
@@ -915,6 +916,10 @@
           "Microsoft.Extensions.Identity.Stores": {
             "target": "Package",
             "version": "[5.0.9, )"
+          },
+          "System.ComponentModel.Annotations": {
+            "target": "Package",
+            "version": "[5.0.0, )"
           }
         },
         "imports": [

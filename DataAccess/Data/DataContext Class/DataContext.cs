@@ -24,6 +24,11 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<InternetNetwork>  InternetNetworks { get; set; }
         public DbSet<OperatingSystems> OperatingSystems { get; set; }
         public DbSet<OperatingSystemVersion>  OperatingSystemVersions { get; set; }
+        public DbSet<Mobile>  Mobiles { get; set; }
+        public DbSet<NetworksMobile> NetworksMobiles { get; set; }
+
+        public DbSet<MobileFrontCamera> MobileFrontCameras { get; set; }
+        public DbSet<MobileBackCamera> MobileBackCameras { get; set; }
 
 
 
@@ -32,9 +37,11 @@ namespace DataAccess.Data.DataContext_Class
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-             modelBuilder.ApplyConfiguration(new BrandConfiguration());
             modelBuilder.ApplyConfiguration(new OSVersionConfiguration());
+            modelBuilder.ApplyConfiguration(new MobileConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandConfiguration());
 
+            modelBuilder.Entity<Category>().HasKey(a => a.Category_Id);
 
         }
 
