@@ -209,6 +209,9 @@
             "projectReferences": {
               "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj": {
                 "projectPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj"
+              },
+              "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj": {
+                "projectPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj"
               }
             }
           }
@@ -223,6 +226,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.15.2, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.9, )"

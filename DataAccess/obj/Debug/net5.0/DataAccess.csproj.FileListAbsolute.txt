@@ -16,3 +16,5 @@ C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\bin\Debug\net
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\bin\Debug\net5.0\Bussiness Core.pdb
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\bin\Debug\net5.0\Presentation.dll
+C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\DataAccess\bin\Debug\net5.0\Presentation.pdb

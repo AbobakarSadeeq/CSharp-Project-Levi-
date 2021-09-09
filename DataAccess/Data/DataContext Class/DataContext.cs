@@ -26,9 +26,9 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<OperatingSystemVersion>  OperatingSystemVersions { get; set; }
         public DbSet<Mobile>  Mobiles { get; set; }
         public DbSet<NetworksMobile> NetworksMobiles { get; set; }
-
         public DbSet<MobileFrontCamera> MobileFrontCameras { get; set; }
         public DbSet<MobileBackCamera> MobileBackCameras { get; set; }
+        public DbSet<MobileImages>  MobileImages { get; set; }
 
 
 

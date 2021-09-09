@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,9 @@ namespace Bussiness_Core.Entities
 {
    public class MobileImages
     {
-        public int Id { get; set; }
+        [Key]
+        public int MobileImages_Id { get; set; }
         public string URL { get; set; }
-        public DateTime? DateAdded { get; set; }
         public string PublicId { get; set; }
         [ForeignKey("Mobile")]
         public int MobileId { get; set; }

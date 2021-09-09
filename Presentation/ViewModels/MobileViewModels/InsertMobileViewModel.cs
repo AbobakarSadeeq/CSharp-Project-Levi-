@@ -1,4 +1,5 @@
 ﻿using Bussiness_Core.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,11 @@ namespace Presentation.ViewModels.MobileViewModels
         public OperatingSystemVersion OperatingSystemVersion { get; set; }
         public int ColorId { get; set; }
         public Color Color { get; set; }
-        public List<int> InternetNetworkId { get; set; }
+        public List<NetworksMobile> NetworksMobiles { get; set; }
         public List<MobileFrontCamera> FrontCameras { get; set; }
         public List<MobileBackCamera> BackCameras { get; set; }
-        
+        public List<ImageInsertingViewModel> ImageInsertingViewModels { get; set; }
+        public List<IFormFile> File { get; set; }
+
     }
 }

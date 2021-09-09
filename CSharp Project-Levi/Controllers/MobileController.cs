@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Bussiness_Core.Entities;
 using Bussiness_Core.IServices;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ViewModels;
@@ -41,10 +42,11 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> CreateMobile(InsertMobileViewModel  insertMobileViewModel)
         {
             var convertingModel = _mapper.Map<Mobile>(insertMobileViewModel);
-            var gettingInternetNetworkData = insertMobileViewModel.InternetNetworkId;
+            var gettingInternetNetworkData = insertMobileViewModel.NetworksMobiles;
             var gettingFrontCameraDetails = insertMobileViewModel.FrontCameras;
             var gettingBackCameraDetails = insertMobileViewModel.BackCameras;
-            await _MobileService.InsertMobile(convertingModel, gettingInternetNetworkData,  gettingFrontCameraDetails, gettingBackCameraDetails);
+            var gettingMobileImages = insertMobileViewModel.File;
+            await _MobileService.InsertMobile(convertingModel, gettingInternetNetworkData, gettingFrontCameraDetails, gettingBackCameraDetails, gettingMobileImages);
             return Ok("Done Inserting!");
         }
 
@@ -56,15 +58,40 @@ namespace CSharp_Project_Levi.Controllers
             return Ok("Done Deleting!");
         }
 
+        [HttpDelete("DeletingSingleMobileImage/{Id}")]
+        public async Task<IActionResult> DeletingPhoto(int Id)
+        {
+            var findingData = await _MobileService.GetMobileImage(Id);
+
+            await _MobileService.DeleteMobileImage(findingData);
+            return Ok("Done Deleting Single Image:");
+        } 
+
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateMobileViewModel viewModel)
+        public async Task<IActionResult> Update([FromForm] UpdateMobileViewModel viewModel)
         {
             var newData = _mapper.Map<Mobile>(viewModel);
-            newData.MobileFrontCameras = viewModel.FrontCameras;
-            newData.MobileBackCameras= viewModel.BackCameras;
-            newData.NetworksMobiles = viewModel.networksMobiles;
             var oldData = await _MobileService.GetMobile(newData.Mobile_Id);
             await _MobileService.UpdateMobile(oldData, newData);
+
+            foreach (var item in viewModel.FrontCameras)
+            {
+                var frontCameraOldData = await _MobileService.GetMobileFrontCamera(item.MobileFrontCamera_Id);
+                await _MobileService.UpdateMobileFrontCamera(frontCameraOldData, item);
+            }
+
+            foreach (var item in viewModel.BackCameras)
+            {
+                var frontCameraOldData = await _MobileService.GetMobileBackCamera(item.MobileBackCamera_Id);
+                await _MobileService.UpdateMobileBackCamera(frontCameraOldData, item);
+            }
+
+            foreach (var item in viewModel.networksMobiles)
+            {
+                var frontCameraOldData = await _MobileService.GetNetworkMobile(item.MobileNetwork_Id);
+                await _MobileService.UpdateNetworkMobile(frontCameraOldData, item);
+            }
+
             return Ok("Done Updating!");
         }
     }

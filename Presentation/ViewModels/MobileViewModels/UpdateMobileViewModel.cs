@@ -1,4 +1,5 @@
 ﻿using Bussiness_Core.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,5 +36,6 @@ namespace Presentation.ViewModels.MobileViewModels
         public List<NetworksMobile> networksMobiles { get; set; }
         public List<MobileFrontCamera> FrontCameras { get; set; }
         public List<MobileBackCamera> BackCameras { get; set; }
+
     }
 }

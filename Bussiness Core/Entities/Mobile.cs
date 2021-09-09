@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,7 @@ namespace Bussiness_Core.Entities
         public ICollection<NetworksMobile> NetworksMobiles { get; set; }
         public ICollection<MobileFrontCamera>  MobileFrontCameras { get; set; }
         public ICollection<MobileBackCamera>  MobileBackCameras { get; set; }
-        public ICollection<MobileImages> MobileImages { get; set; }
+        public ICollection<MobileImages> MobileImagess { get; set; }
 
 
         //Mobile Price
@@ -54,7 +55,7 @@ namespace Bussiness_Core.Entities
             NetworksMobiles = new HashSet<NetworksMobile>();
             MobileFrontCameras = new HashSet<MobileFrontCamera>();
             MobileBackCameras = new HashSet<MobileBackCamera>();
-            MobileImages = new HashSet<MobileImages>();
+            MobileImagess = new HashSet<MobileImages>();
         }
         //Mobiles Images
 

@@ -1,4 +1,5 @@
 ﻿using Bussiness_Core.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,20 @@ namespace Bussiness_Core.IServices
     {
         Task<IEnumerable<Mobile>> GetMobiles();
         Task<Mobile> GetMobile(int Id);
-        Task<Mobile> InsertMobile(Mobile Mobile, List<int> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera>  mobileBackCameras);
+        Task<MobileImages> GetMobileImage(int Id);
+
+        Task<Mobile> InsertMobile(Mobile Mobile, List<NetworksMobile> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera>  mobileBackCameras,  List<IFormFile> File);
         Task<Mobile> DeleteMobile(Mobile Mobile);
         Task<Mobile> UpdateMobile(Mobile OldData, Mobile NewData);
+        Task<MobileImages> DeleteMobileImage(MobileImages  mobileImages);
+
+
+        Task<MobileFrontCamera> GetMobileFrontCamera(int Id);
+        Task<MobileFrontCamera> UpdateMobileFrontCamera(MobileFrontCamera OldData, MobileFrontCamera NewData);
+        Task<MobileBackCamera> GetMobileBackCamera(int Id);
+        Task<MobileBackCamera> UpdateMobileBackCamera(MobileBackCamera OldData, MobileBackCamera NewData);
+        Task<NetworksMobile> GetNetworkMobile(int Id);
+        Task<NetworksMobile> UpdateNetworkMobile(NetworksMobile OldData, NetworksMobile NewData);
+
     }
 }

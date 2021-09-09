@@ -20,11 +20,10 @@ namespace Presentation.AutoMapper
             CreateMap<InternetNetwork, InternetNetworkViewModel>().ReverseMap();
             CreateMap<OperatingSystems, OperatingSystemViewModel>().ReverseMap();
             CreateMap<OperatingSystemVersion, OperatingSystemVersionViewModel>().ReverseMap();
-            CreateMap<Mobile, MobileViewModel>().ReverseMap();
             CreateMap<Mobile, InsertMobileViewModel>().ReverseMap();
             CreateMap<Mobile, UpdateMobileViewModel>().ReverseMap();
-
-
+            CreateMap<Mobile, MobileViewModel>().ReverseMap();
+            CreateMap<MobileImages, ImageInsertingViewModel>().ReverseMap();
 
 
 

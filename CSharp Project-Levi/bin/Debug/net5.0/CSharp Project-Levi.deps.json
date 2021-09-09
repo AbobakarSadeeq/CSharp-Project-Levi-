@@ -1637,10 +1637,12 @@
       "DataAccess/1.0.0": {
         "dependencies": {
           "Bussiness Core": "1.0.0",
+          "CloudinaryDotNet": "1.15.2",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.9",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.9",
           "Microsoft.EntityFrameworkCore": "5.0.9",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
+          "Presentation": "1.0.0"
         },
         "runtime": {
           "DataAccess.dll": {}
