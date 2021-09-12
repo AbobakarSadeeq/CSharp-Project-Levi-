@@ -28,8 +28,7 @@ namespace DataAccess.Data.Services_Implementation
 
         public async Task<Mobile> DeleteMobile(Mobile Mobile)
         {
-            await _unitOfWork._MobileRepository.DeleteMobile(Mobile);
-
+             _unitOfWork._MobileRepository.DeleteMobile(Mobile);
             await _unitOfWork.CommitAsync();
             return Mobile;
         }
@@ -52,10 +51,9 @@ namespace DataAccess.Data.Services_Implementation
             await _unitOfWork.CommitAsync();
             return mobile;
         }
-        public async Task<MobileImages> DeleteMobileImage(MobileImages mobileImages)
+        public  MobileImages DeleteMobileImage(MobileImages mobileImages)
         {
-            await _unitOfWork._MobileRepository.DeleteMobileImage(mobileImages);
-            await _unitOfWork.CommitAsync();
+             _unitOfWork._MobileRepository.DeleteMobileImage(mobileImages);
             return mobileImages;
         }
 

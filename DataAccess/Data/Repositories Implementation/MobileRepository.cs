@@ -41,7 +41,7 @@ namespace DataAccess.Data.Repositories_Implementation
             return await _DataContext.MobileImages.FirstOrDefaultAsync(a => a.MobileImages_Id == Id);
         }
 
-        public async Task<MobileImages> DeleteMobileImage(MobileImages mobileImages)
+        public MobileImages DeleteMobileImage(MobileImages mobileImages)
         {
             var deletePrams = new DeletionParams(mobileImages.PublicId);
             var cloudinaryDeletePhoto =  _cloudinary.Destroy(deletePrams);
@@ -55,16 +55,23 @@ namespace DataAccess.Data.Repositories_Implementation
 
         public async Task<IEnumerable<Mobile>> GetMobiles()
         {
-            var Data = await _DataContext.Mobiles.Include(a =>a.MobileImagess).Include(a=>a.Color).ToListAsync();
+            var Data = await _DataContext.Mobiles.Include(a =>a.MobileImagess).Include(a=>a.Color).Include(a=>a.Brand).ToListAsync();
             return Data;
         }
 
         public async Task<Mobile> GetSingleMobile(int Id)
         {
-            var getById = await _DataContext.Mobiles.Include(a => a.NetworksMobiles)
-                .Include(a=>a.MobileFrontCameras)
-                .Include(a=>a.MobileBackCameras)
-                .Include(a=>a.MobileImagess)
+            var getById = await _DataContext.Mobiles
+                .Include(a => a.NetworksMobiles)
+                .Include(a => a.MobileFrontCameras)
+                .Include(a => a.MobileBackCameras)
+                .Include(a => a.MobileImagess)
+                .Include(a => a.Brand)
+                .Include(a => a.Color)
+                .Include(a => a.OperatingSystemVersion)
+                .Include(a => a.OperatingSystemVersion.OperatingSystemss)
+                .Include(a => a.NetworksMobiles)
+
                 .SingleOrDefaultAsync(a=>a.Mobile_Id== Id);
             return getById;
         }
@@ -123,7 +130,7 @@ namespace DataAccess.Data.Repositories_Implementation
             return mobileData;
         }
 
-        public async Task<Mobile> DeleteMobile(Mobile mobile)
+        public Mobile DeleteMobile(Mobile mobile)
         {
             foreach (var item in mobile.MobileImagess)
             {

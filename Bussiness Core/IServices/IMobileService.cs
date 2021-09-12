@@ -17,7 +17,7 @@ namespace Bussiness_Core.IServices
         Task<Mobile> InsertMobile(Mobile Mobile, List<NetworksMobile> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera>  mobileBackCameras,  List<IFormFile> File);
         Task<Mobile> DeleteMobile(Mobile Mobile);
         Task<Mobile> UpdateMobile(Mobile OldData, Mobile NewData);
-        Task<MobileImages> DeleteMobileImage(MobileImages  mobileImages);
+        MobileImages DeleteMobileImage(MobileImages  mobileImages);
 
 
         Task<MobileFrontCamera> GetMobileFrontCamera(int Id);

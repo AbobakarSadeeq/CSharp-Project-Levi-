@@ -47,7 +47,7 @@ namespace CSharp_Project_Levi.Controllers
             var gettingBackCameraDetails = insertMobileViewModel.BackCameras;
             var gettingMobileImages = insertMobileViewModel.File;
             await _MobileService.InsertMobile(convertingModel, gettingInternetNetworkData, gettingFrontCameraDetails, gettingBackCameraDetails, gettingMobileImages);
-            return Ok("Done Inserting!");
+            return Created($"{Request.Scheme://request.host}{Request.Path}/{insertMobileViewModel.Mobile_Id}", insertMobileViewModel);
         }
 
         [HttpDelete("{Id}")]
@@ -55,15 +55,18 @@ namespace CSharp_Project_Levi.Controllers
         {
             var findingData = await _MobileService.GetMobile(Id);
             await _MobileService.DeleteMobile(findingData);
-            return Ok("Done Deleting!");
+            foreach (var item in findingData.MobileImagess)
+            {
+                 _MobileService.DeleteMobileImage(item);
+            }
+            return Ok();
         }
 
         [HttpDelete("DeletingSingleMobileImage/{Id}")]
         public async Task<IActionResult> DeletingPhoto(int Id)
         {
             var findingData = await _MobileService.GetMobileImage(Id);
-
-            await _MobileService.DeleteMobileImage(findingData);
+             _MobileService.DeleteMobileImage(findingData);
             return Ok("Done Deleting Single Image:");
         } 
 
@@ -92,7 +95,8 @@ namespace CSharp_Project_Levi.Controllers
                 await _MobileService.UpdateNetworkMobile(frontCameraOldData, item);
             }
 
-            return Ok("Done Updating!");
+            return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.Mobile_Id}", viewModel);
+
         }
     }
 }

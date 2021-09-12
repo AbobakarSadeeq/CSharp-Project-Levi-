@@ -15,8 +15,8 @@ namespace Bussiness_Core.Entities_Repositories
         Task<Mobile> GetSingleMobile(int Id);
         Task<Mobile> InsertingMobileNetwork(Mobile mobile, List<NetworksMobile> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera> mobileBackCameras, List<IFormFile> File);
         Task<MobileImages> GetSinglePhoto(int Id);
-        Task<MobileImages> DeleteMobileImage(MobileImages  mobileImages);
-        Task<Mobile> DeleteMobile(Mobile mobile);
+        MobileImages DeleteMobileImage(MobileImages  mobileImages);
+        Mobile DeleteMobile(Mobile mobile);
         Task<MobileFrontCamera> GetMobileFrontCamera(int Id);
         Task<MobileBackCamera> GetMobileBackCamera(int Id);
         Task<NetworksMobile> GetNetworksMobile(int Id);
