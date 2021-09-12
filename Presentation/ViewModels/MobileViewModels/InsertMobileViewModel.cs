@@ -16,7 +16,7 @@ namespace Presentation.ViewModels.MobileViewModels
         public string Storage { get; set; }
         public string BatteryMah { get; set; }
         public string Ram { get; set; }
-        public string LaunchData { get; set; }
+        public string LaunchDate { get; set; }
         public string MobileWeight { get; set; }
         public string ScreenSize { get; set; }
         public string ScreenType { get; set; }
@@ -33,11 +33,14 @@ namespace Presentation.ViewModels.MobileViewModels
         public OperatingSystemVersion OperatingSystemVersion { get; set; }
         public int ColorId { get; set; }
         public Color Color { get; set; }
-        public List<NetworksMobile> NetworksMobiles { get; set; }
+        public List<NetworksMobile> MobileNetworks { get; set; }
         public List<MobileFrontCamera> FrontCameras { get; set; }
         public List<MobileBackCamera> BackCameras { get; set; }
-        public List<ImageInsertingViewModel> ImageInsertingViewModels { get; set; }
         public List<IFormFile> File { get; set; }
+
+        public int MobilePrice { get; set; }
+        public bool StockAvailiability { get; set; }
+        public int Quantity { get; set; }
 
     }
 }

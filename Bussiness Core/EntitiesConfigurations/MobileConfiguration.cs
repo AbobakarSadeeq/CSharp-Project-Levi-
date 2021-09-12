@@ -17,7 +17,7 @@ namespace Bussiness_Core.EntitiesConfigurations
             builder.HasOne(a => a.Brand).WithMany().HasForeignKey(a => a.BrandId);
             builder.HasOne(a => a.Color).WithMany().HasForeignKey(a => a.ColorId);
             builder.HasOne(a => a.OperatingSystemVersion).WithMany().HasForeignKey(a => a.OSVersionId);
-
+            
         }
     }
 }

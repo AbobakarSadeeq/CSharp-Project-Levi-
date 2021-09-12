@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ namespace Bussiness_Core.Entities
         public string Storage { get; set; }
         public string BatteryMah { get; set; }
         public string Ram { get; set; }
-        public string LaunchData { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? LaunchDate { get; set; }
         public string MobileWeight { get; set; }
         public string ScreenSize { get; set; }
         public string ScreenType { get; set; }
@@ -48,7 +50,7 @@ namespace Bussiness_Core.Entities
         public int Quantity { get; set; }
      
         public DateTime? Created_At { get; set; } = DateTime.Now;
-        public DateTime? Modified_At { get; set; }
+        public DateTime? Modified_At { get; set; } 
 
         public Mobile()
         {

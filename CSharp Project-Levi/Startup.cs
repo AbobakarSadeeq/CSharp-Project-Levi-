@@ -67,13 +67,24 @@ namespace CSharp_Project_Levi
              .AddNewtonsoftJson(options =>
              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CSharp_Project_Levi", Version = "v1" });
             });
+
+            services.AddCors(opt => {
+                opt.AddDefaultPolicy(builder => {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,9 +98,10 @@ namespace CSharp_Project_Levi
             }
 
             app.UseHttpsRedirection();
-
+ 
+            app.UseCors();
+            app.UseAuthentication();
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

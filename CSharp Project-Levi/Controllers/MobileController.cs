@@ -39,10 +39,10 @@ namespace CSharp_Project_Levi.Controllers
             return Ok(fullDetails);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateMobile(InsertMobileViewModel  insertMobileViewModel)
+        public async Task<IActionResult> CreateMobile([FromForm]InsertMobileViewModel  insertMobileViewModel)
         {
             var convertingModel = _mapper.Map<Mobile>(insertMobileViewModel);
-            var gettingInternetNetworkData = insertMobileViewModel.NetworksMobiles;
+            var gettingInternetNetworkData = insertMobileViewModel.MobileNetworks;
             var gettingFrontCameraDetails = insertMobileViewModel.FrontCameras;
             var gettingBackCameraDetails = insertMobileViewModel.BackCameras;
             var gettingMobileImages = insertMobileViewModel.File;

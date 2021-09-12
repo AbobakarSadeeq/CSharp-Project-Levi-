@@ -33,6 +33,7 @@ namespace CSharp_Project_Levi.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAllInternetNetwork()
+        
         {
             var fullDetails = await _InternetNetworkService.GetInternetNetworks();
             var convertingData = _mapper.Map<List<InternetNetworkViewModel>>(fullDetails);

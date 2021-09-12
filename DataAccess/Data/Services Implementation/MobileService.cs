@@ -67,7 +67,7 @@ namespace DataAccess.Data.Services_Implementation
             OldData.Storage = NewData.Storage;
             OldData.BatteryMah = NewData.BatteryMah;
             OldData.Ram = NewData.Ram;
-            OldData.LaunchData = NewData.LaunchData;
+            OldData.LaunchDate = NewData.LaunchDate;
             OldData.MobileWeight = NewData.MobileWeight;
             OldData.ScreenSize = NewData.ScreenSize;
             OldData.ScreenType = NewData.ScreenType;

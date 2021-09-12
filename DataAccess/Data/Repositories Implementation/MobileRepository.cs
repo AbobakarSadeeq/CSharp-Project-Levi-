@@ -85,9 +85,8 @@ namespace DataAccess.Data.Repositories_Implementation
                 await _DataContext.MobileFrontCameras.AddAsync(new MobileFrontCamera { CameraDetail = frontCamera.CameraDetail, MobileId = mobileData.Mobile_Id });
             }
             foreach (var backCamera in mobileBackCameras)
-           {
+            {
                 await _DataContext.MobileBackCameras.AddAsync(new MobileBackCamera { CameraDetail = backCamera.CameraDetail, MobileId = mobileData.Mobile_Id });
-
             }
 
 
