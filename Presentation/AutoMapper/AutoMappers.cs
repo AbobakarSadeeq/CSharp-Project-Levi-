@@ -24,6 +24,8 @@ namespace Presentation.AutoMapper
             CreateMap<Mobile, UpdateMobileViewModel>().ReverseMap();
             CreateMap<Mobile, MobileViewModel>().ReverseMap();
             CreateMap<MobileImages, ImageInsertingViewModel>().ReverseMap();
+            CreateMap<NetworksMobile, NetworksMobileViewModel>().ReverseMap();
+
 
 
 

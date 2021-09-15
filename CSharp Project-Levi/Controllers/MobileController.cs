@@ -38,7 +38,7 @@ namespace CSharp_Project_Levi.Controllers
             var fullDetails = await _MobileService.GetMobiles();
             return Ok(fullDetails);
         }
-        [HttpPost]
+        [HttpPost]      
         public async Task<IActionResult> CreateMobile([FromForm]InsertMobileViewModel  insertMobileViewModel)
         {
             var convertingModel = _mapper.Map<Mobile>(insertMobileViewModel);
@@ -57,7 +57,7 @@ namespace CSharp_Project_Levi.Controllers
             await _MobileService.DeleteMobile(findingData);
             foreach (var item in findingData.MobileImagess)
             {
-                 _MobileService.DeleteMobileImage(item);
+                await _MobileService.DeleteMobileImage(item);
             }
             return Ok();
         }
@@ -66,8 +66,8 @@ namespace CSharp_Project_Levi.Controllers
         public async Task<IActionResult> DeletingPhoto(int Id)
         {
             var findingData = await _MobileService.GetMobileImage(Id);
-             _MobileService.DeleteMobileImage(findingData);
-            return Ok("Done Deleting Single Image:");
+           await _MobileService.DeleteMobileImage(findingData);
+            return Ok();
         } 
 
         [HttpPut]
@@ -77,23 +77,64 @@ namespace CSharp_Project_Levi.Controllers
             var oldData = await _MobileService.GetMobile(newData.Mobile_Id);
             await _MobileService.UpdateMobile(oldData, newData);
 
-            foreach (var item in viewModel.FrontCameras)
+            if (viewModel.networksMobiles != null)
             {
-                var frontCameraOldData = await _MobileService.GetMobileFrontCamera(item.MobileFrontCamera_Id);
-                await _MobileService.UpdateMobileFrontCamera(frontCameraOldData, item);
+                foreach (var item in viewModel.networksMobiles)
+                {
+                    var convertNewData = new NetworksMobile
+                    {
+                        MobileId = viewModel.Mobile_Id,
+                        MobileNetwork_Id = item.MobileNetwork_Id,
+                        InternetNetworkId = item.InternetNetworkId
+                    };
+                    
+                    // Adding Data
+                    if (item.MobileNetwork_Id == 0)
+                    {
+                        await _MobileService.AddMobileNetwork(convertNewData);
+                    }else if (item.check == false)
+                    {
+                        var gettingData = await _MobileService.GetNetworkMobile(convertNewData.MobileNetwork_Id);
+                        await _MobileService.DeleteMobileNetwork(gettingData);
+                    }
+                    else
+                    {
+                        var networkMobileOldData = await _MobileService.GetNetworkMobile(item.MobileNetwork_Id);
+                        await _MobileService.UpdateNetworkMobile(networkMobileOldData, convertNewData);
+                    }
+                   
+                }
             }
 
-            foreach (var item in viewModel.BackCameras)
+
+            if (viewModel.File != null)
             {
-                var frontCameraOldData = await _MobileService.GetMobileBackCamera(item.MobileBackCamera_Id);
-                await _MobileService.UpdateMobileBackCamera(frontCameraOldData, item);
+                await _MobileService.UpdateSingleMobileImage(oldData, viewModel.File);
+
             }
 
-            foreach (var item in viewModel.networksMobiles)
+            if (viewModel.FrontCameras.Count > 0 || viewModel.FrontCameras != null)
             {
-                var frontCameraOldData = await _MobileService.GetNetworkMobile(item.MobileNetwork_Id);
-                await _MobileService.UpdateNetworkMobile(frontCameraOldData, item);
+                foreach (var item in viewModel.FrontCameras)
+                {
+                    var frontCameraOldData = await _MobileService.GetMobileFrontCamera(item.MobileFrontCamera_Id);
+                    await _MobileService.UpdateMobileFrontCamera(frontCameraOldData, item);
+                }
             }
+            
+            if(viewModel.BackCameras.Count > 0 || viewModel.FrontCameras != null)
+            {
+                foreach (var item in viewModel.BackCameras)
+                {
+                    var frontCameraOldData = await _MobileService.GetMobileBackCamera(item.MobileBackCamera_Id);
+                    await _MobileService.UpdateMobileBackCamera(frontCameraOldData, item);
+                }
+            }
+           
+    
+           
+
+             
 
             return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.Mobile_Id}", viewModel);
 

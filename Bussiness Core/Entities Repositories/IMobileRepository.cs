@@ -20,6 +20,10 @@ namespace Bussiness_Core.Entities_Repositories
         Task<MobileFrontCamera> GetMobileFrontCamera(int Id);
         Task<MobileBackCamera> GetMobileBackCamera(int Id);
         Task<NetworksMobile> GetNetworksMobile(int Id);
+        Mobile UpdateMobileImage(Mobile mobileData, List<IFormFile> File);
+        Task<NetworksMobile> AddingMobileInternet(NetworksMobile networksMobile);
+        NetworksMobile DeletingMobileNetwork(NetworksMobile networksMobile);
+
 
 
 

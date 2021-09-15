@@ -60,9 +60,9 @@ namespace DataAccess.Data.Repositories_Implementation
         }
 
         public async Task<Mobile> GetSingleMobile(int Id)
-        {
+            {
             var getById = await _DataContext.Mobiles
-                .Include(a => a.NetworksMobiles)
+                .Include(a => a.networksMobiles)
                 .Include(a => a.MobileFrontCameras)
                 .Include(a => a.MobileBackCameras)
                 .Include(a => a.MobileImagess)
@@ -70,7 +70,6 @@ namespace DataAccess.Data.Repositories_Implementation
                 .Include(a => a.Color)
                 .Include(a => a.OperatingSystemVersion)
                 .Include(a => a.OperatingSystemVersion.OperatingSystemss)
-                .Include(a => a.NetworksMobiles)
 
                 .SingleOrDefaultAsync(a=>a.Mobile_Id== Id);
             return getById;
@@ -161,9 +160,52 @@ namespace DataAccess.Data.Repositories_Implementation
 
         }
 
-     
+         
 
+        public Mobile UpdateMobileImage(Mobile mobileData, List<IFormFile> File)
+        {
+            foreach (var file in File)
+            {
+                var uploadResult = new ImageUploadResult();
+                if (File.Count > 0)
+                {
+                    using (var stream = file.OpenReadStream())
+                    {
+                        var uploadparams = new ImageUploadParams
+                        {
+                            File = new FileDescription(file.Name, stream),
+                            // we can also crop the image if we want here means when user could upload his large size or big shape of image then crop it all its around thing just focus it on the face only
+                            // it will crop the image automatically for us. 
+                            Transformation = new Transformation()
+                            .Width(824).Height(536)
 
+                        };
+                        // Uploading the image on clodinary server and could take a while
+                        uploadResult = _cloudinary.Upload(uploadparams);
+                    }
+                }
+                mobileData.MobileImagess.
+                Add(new MobileImages
+                {
+                    MobileId = mobileData.Mobile_Id,
+                    PublicId = uploadResult.PublicId,
+                    URL = uploadResult.Url.ToString()
+                });
+            }
+            return mobileData;
+        }
+
+        public async Task<NetworksMobile> AddingMobileInternet(NetworksMobile networksMobile)
+        {
+            await _DataContext.NetworksMobiles.AddAsync(networksMobile);
+            return networksMobile;
+        }
+
+        public NetworksMobile DeletingMobileNetwork(NetworksMobile networksMobile)
+        {
+            _DataContext.NetworksMobiles.Remove(networksMobile);
+            return networksMobile;
+        }
     }
 
  }

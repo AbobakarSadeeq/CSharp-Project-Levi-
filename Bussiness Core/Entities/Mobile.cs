@@ -37,7 +37,7 @@ namespace Bussiness_Core.Entities
 
 
         // Navigation Properties
-        public ICollection<NetworksMobile> NetworksMobiles { get; set; }
+        public ICollection<NetworksMobile> networksMobiles { get; set; }
         public ICollection<MobileFrontCamera>  MobileFrontCameras { get; set; }
         public ICollection<MobileBackCamera>  MobileBackCameras { get; set; }
         public ICollection<MobileImages> MobileImagess { get; set; }
@@ -54,7 +54,7 @@ namespace Bussiness_Core.Entities
 
         public Mobile()
         {
-            NetworksMobiles = new HashSet<NetworksMobile>();
+            networksMobiles = new HashSet<NetworksMobile>();
             MobileFrontCameras = new HashSet<MobileFrontCamera>();
             MobileBackCameras = new HashSet<MobileBackCamera>();
             MobileImagess = new HashSet<MobileImages>();

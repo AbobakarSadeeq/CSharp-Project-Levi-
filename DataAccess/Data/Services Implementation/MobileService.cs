@@ -51,9 +51,10 @@ namespace DataAccess.Data.Services_Implementation
             await _unitOfWork.CommitAsync();
             return mobile;
         }
-        public  MobileImages DeleteMobileImage(MobileImages mobileImages)
+        public async  Task<MobileImages> DeleteMobileImage(MobileImages mobileImages)
         {
              _unitOfWork._MobileRepository.DeleteMobileImage(mobileImages);
+            await _unitOfWork.CommitAsync();
             return mobileImages;
         }
 
@@ -131,5 +132,25 @@ namespace DataAccess.Data.Services_Implementation
             return OldData;
         }
 
+        public async Task<Mobile> UpdateSingleMobileImage(Mobile mobile, List<IFormFile> File)
+        {
+             _unitOfWork._MobileRepository.UpdateMobileImage(mobile, File);
+            await _unitOfWork.CommitAsync();
+            return mobile;
+        }
+
+        public async Task<NetworksMobile> AddMobileNetwork(NetworksMobile networksMobile)
+        {
+            await _unitOfWork._MobileRepository.AddingMobileInternet(networksMobile);
+            await _unitOfWork.CommitAsync();
+            return networksMobile;
+        }
+
+        public async Task<NetworksMobile> DeleteMobileNetwork(NetworksMobile networksMobile)
+        {
+            _unitOfWork._MobileRepository.DeletingMobileNetwork(networksMobile);
+           await _unitOfWork.CommitAsync();
+            return networksMobile;
+        }
     }
 }

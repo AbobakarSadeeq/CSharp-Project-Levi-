@@ -15,9 +15,10 @@ namespace Bussiness_Core.IServices
         Task<MobileImages> GetMobileImage(int Id);
 
         Task<Mobile> InsertMobile(Mobile Mobile, List<NetworksMobile> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera>  mobileBackCameras,  List<IFormFile> File);
+        Task<Mobile> UpdateSingleMobileImage(Mobile Mobile, List<IFormFile> File);
         Task<Mobile> DeleteMobile(Mobile Mobile);
         Task<Mobile> UpdateMobile(Mobile OldData, Mobile NewData);
-        MobileImages DeleteMobileImage(MobileImages  mobileImages);
+        Task<MobileImages> DeleteMobileImage(MobileImages  mobileImages);
 
 
         Task<MobileFrontCamera> GetMobileFrontCamera(int Id);
@@ -26,6 +27,8 @@ namespace Bussiness_Core.IServices
         Task<MobileBackCamera> UpdateMobileBackCamera(MobileBackCamera OldData, MobileBackCamera NewData);
         Task<NetworksMobile> GetNetworkMobile(int Id);
         Task<NetworksMobile> UpdateNetworkMobile(NetworksMobile OldData, NetworksMobile NewData);
+        Task<NetworksMobile> AddMobileNetwork(NetworksMobile networksMobile);
+        Task<NetworksMobile> DeleteMobileNetwork(NetworksMobile networksMobile);
 
     }
 }
