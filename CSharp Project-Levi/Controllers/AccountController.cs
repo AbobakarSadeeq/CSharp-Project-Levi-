@@ -20,7 +20,7 @@ namespace CSharp_Project_Levi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
+
     public class AccountController : ControllerBase
     {
         private readonly UserManager<CustomIdentity> userManager;
