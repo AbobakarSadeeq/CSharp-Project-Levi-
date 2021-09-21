@@ -1,5 +1,6 @@
 ﻿using Bussiness_Core.Entities;
 using Bussiness_Core.EntitiesConfigurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data.DataContext_Class
 {
-   public class DataContext : DbContext
+   public class DataContext : IdentityDbContext<CustomIdentity>
    {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -29,6 +30,7 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<MobileFrontCamera> MobileFrontCameras { get; set; }
         public DbSet<MobileBackCamera> MobileBackCameras { get; set; }
         public DbSet<MobileImages>  MobileImages { get; set; }
+        public DbSet<Carousel> Carousels { get; set; } 
 
 
 
@@ -40,7 +42,7 @@ namespace DataAccess.Data.DataContext_Class
             modelBuilder.ApplyConfiguration(new OSVersionConfiguration());
             modelBuilder.ApplyConfiguration(new MobileConfiguration());
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
-
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasKey(a => a.Category_Id);
 
         }

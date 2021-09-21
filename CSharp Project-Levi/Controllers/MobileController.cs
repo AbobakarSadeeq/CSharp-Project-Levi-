@@ -131,13 +131,18 @@ namespace CSharp_Project_Levi.Controllers
                 }
             }
            
-    
-           
-
-             
-
             return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.Mobile_Id}", viewModel);
+        }
 
+
+
+        // Client View Action Methods or Client-API
+        [HttpGet("GetMaxSellOutMobiles")]
+        public async Task<IActionResult> GetMaxSellOutMobiles()
+        {
+            var fullDetails = await _MobileService.GetMobiles();
+            var result = fullDetails.OrderByDescending(a => a.SellUnits).Take(6);
+            return Ok(result);
         }
     }
 }

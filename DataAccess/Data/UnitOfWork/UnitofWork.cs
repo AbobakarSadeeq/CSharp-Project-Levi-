@@ -28,6 +28,9 @@ namespace DataAccess.Data.UnitOfWork
         public IOSVersionRepository _OSVersionRepository { get; init; }
 
         public IMobileRepository _MobileRepository { get; init; }
+
+        public ICarouselRepository _CarouselRepository { get; init; }
+
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
 
         public UnitofWork(DataContext DataContext, IOptions<CloudinarySettings> cloudinaryConfig) 
@@ -44,6 +47,7 @@ namespace DataAccess.Data.UnitOfWork
             _OperatingSystemRepository = new OperatingSystemRepository(_DataContext);
             _OSVersionRepository = new OSVersionRepository(_DataContext);
             _MobileRepository = new MobileRepository(_DataContext, _cloudinaryConfig);
+            _CarouselRepository = new CarouselRepository(_DataContext, _cloudinaryConfig);
 
 
 

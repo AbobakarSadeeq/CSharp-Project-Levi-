@@ -1,3 +1,4 @@
+using Bussiness_Core.Entities;
 using Bussiness_Core.Entities_Repositories;
 using Bussiness_Core.IServices;
 using Bussiness_Core.IUnitOfWork;
@@ -8,6 +9,7 @@ using DataAccess.Data.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +41,7 @@ namespace CSharp_Project_Levi
             // Inject AppSettings
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
+            services.AddIdentity<CustomIdentity, IdentityRole>().AddEntityFrameworkStores<DataContext>();
             services.AddDbContextPool<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -58,6 +61,7 @@ namespace CSharp_Project_Levi
             services.AddTransient<IOperatingSystemService, OperatingSystemService>();
             services.AddTransient<IOSVersionService, OSVersionService>();
             services.AddTransient<IMobileService, MobileService>();
+            services.AddTransient<ICarouselService, CarouselService>();
 
 
 

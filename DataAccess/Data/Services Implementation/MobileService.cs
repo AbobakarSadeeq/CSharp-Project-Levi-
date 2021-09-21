@@ -80,11 +80,10 @@ namespace DataAccess.Data.Services_Implementation
             OldData.OSVersionId = NewData.OSVersionId;
             OldData.ColorId = NewData.ColorId;
             OldData.MobilePrice = NewData.MobilePrice;
-            OldData.SellUnits = NewData.SellUnits;
             OldData.StockAvailiability = NewData.StockAvailiability;
             OldData.Quantity = NewData.Quantity;
+            OldData.SellUnits = OldData.SellUnits;
             OldData.Modified_At = DateTime.Now;
-            OldData.SellUnits = NewData.SellUnits;
             await _unitOfWork.CommitAsync();
             return OldData;
         }

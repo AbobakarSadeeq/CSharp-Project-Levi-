@@ -11,7 +11,6 @@ namespace Presentation.ViewModels
     {
         public int OperatingSystem_Id { get; set; }
         public string OperatingName { get; set; }
-        public DateTime? Created_At { get; set; } = DateTime.Now;
 
     }
 }

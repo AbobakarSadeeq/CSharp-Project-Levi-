@@ -25,6 +25,7 @@ namespace Presentation.AutoMapper
             CreateMap<Mobile, MobileViewModel>().ReverseMap();
             CreateMap<MobileImages, ImageInsertingViewModel>().ReverseMap();
             CreateMap<NetworksMobile, NetworksMobileViewModel>().ReverseMap();
+            CreateMap<Carousel, CarouselViewModel>().ReverseMap();
 
 
 
