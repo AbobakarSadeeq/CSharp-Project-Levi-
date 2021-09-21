@@ -6,22 +6,27 @@ using DataAccess.Data.DataContext_Class;
 using DataAccess.Data.Repositories_Implementation;
 using DataAccess.Data.Services_Implementation;
 using DataAccess.Data.UnitOfWork;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Presentation.AppSettingClasses;
 using Presentation.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharp_Project_Levi
@@ -40,10 +45,43 @@ namespace CSharp_Project_Levi
         {
             // Inject AppSettings
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
-
+            services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
             services.AddIdentity<CustomIdentity, IdentityRole>().AddEntityFrameworkStores<DataContext>();
             services.AddDbContextPool<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+             
+
+            // JWT Token
+            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
+            services.AddAuthentication(a =>
+            {
+                a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x => {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = false;
+                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
+
+            // Validation for Password
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 5;
+                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.SignIn.RequireConfirmedEmail = false;
+            });
 
             // Auto Mapper
             services.AddAutoMapper(typeof(AutoMappers));
@@ -77,6 +115,8 @@ namespace CSharp_Project_Levi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CSharp_Project_Levi", Version = "v1" });
             });
 
+         
+
             services.AddCors(opt => {
                 opt.AddDefaultPolicy(builder => {
                     builder.AllowAnyOrigin();
@@ -102,8 +142,12 @@ namespace CSharp_Project_Levi
             }
 
             app.UseHttpsRedirection();
- 
-            app.UseCors();
+
+            app.UseCors(builder => {
+                builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
             app.UseAuthentication();
             app.UseRouting();
             app.UseAuthorization();
