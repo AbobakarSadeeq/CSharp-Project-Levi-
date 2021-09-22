@@ -20,7 +20,7 @@ namespace CSharp_Project_Levi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [AllowAnonymous]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<CustomIdentity> userManager;
@@ -126,21 +126,20 @@ namespace CSharp_Project_Levi.Controllers
 
         [HttpGet]
         [Authorize]
- 
         public async Task<Object> GetUserProfile()
         {
-             
+
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
             var user = await userManager.FindByIdAsync(userId);
-            var result = new
+            return new
             {
                 user.Id,
                 user.UserName,
                 user.Email,
             };
-            return Ok(result);
-
 
         }
+
+
     }
 }

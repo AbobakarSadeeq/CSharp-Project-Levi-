@@ -161,7 +161,7 @@ namespace CSharp_Project_Levi.Controllers
         }
 
         [HttpPost("updateRoleUser/{roleId}")]
-        public async Task<IActionResult> updateRoleUser(string roleId, List<UserRoleViewModel> model)
+        public async Task<IActionResult> updateRoleUser(string roleId, [FromForm] List<UserRoleViewModel> model)
         {
             var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null)
