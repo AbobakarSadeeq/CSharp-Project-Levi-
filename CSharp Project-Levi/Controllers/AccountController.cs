@@ -15,6 +15,7 @@ using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
+using Bussiness_Core.IServices;
 
 namespace CSharp_Project_Levi.Controllers
 {
@@ -27,13 +28,15 @@ namespace CSharp_Project_Levi.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<CustomIdentity> signInManger;
         private readonly ApplicationSettings _appSettings;
+        private readonly IUserPhotoService _UserPhotoService;
         public AccountController(UserManager<CustomIdentity> myuserManager,
-            SignInManager<CustomIdentity> mysignIngManage, IOptions<ApplicationSettings> appSettings, RoleManager<IdentityRole> roleManager)
+            SignInManager<CustomIdentity> mysignIngManage, IOptions<ApplicationSettings> appSettings, RoleManager<IdentityRole> roleManager, IUserPhotoService userPhotoService)
         {
             this.userManager = myuserManager;
             _roleManager = roleManager;
             this.signInManger = mysignIngManage;
             this._appSettings = appSettings.Value;
+            _UserPhotoService = userPhotoService;
         }
 
         [HttpPost]
@@ -88,6 +91,8 @@ namespace CSharp_Project_Levi.Controllers
             var user = await userManager.FindByEmailAsync(model.Email);
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
+                var findUrlWhoseIsMainTrue = await _UserPhotoService.GetMainPhotoForUser(user.Id);
+
                 var roles = await userManager.GetRolesAsync(user);
                 //HERE I USE THE CONDITION BECUASE WHENEVER USER HAVE NOT HAVING A ROLE IN A DATABASE THEN LOG HIM WITHOUT THE ROLE BUT HE/SHE NEED TO AUTHENTICATED OR REGISTAR FIRST
                 if (roles.Count >= 1)
@@ -110,7 +115,7 @@ namespace CSharp_Project_Levi.Controllers
                     var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                     var token = tokenHandler.WriteToken(securityToken);
 
-                    return Ok(new { token, user.UserName, user.Email, user.Id });
+                    return Ok(new { token, user.UserName, user.Email, user.Id, findUrlWhoseIsMainTrue?.URL });
 
                 }
                 else

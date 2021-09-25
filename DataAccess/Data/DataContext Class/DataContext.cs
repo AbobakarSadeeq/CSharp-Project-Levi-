@@ -31,6 +31,12 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<MobileBackCamera> MobileBackCameras { get; set; }
         public DbSet<MobileImages>  MobileImages { get; set; }
         public DbSet<Carousel> Carousels { get; set; } 
+        public DbSet<UserImage> UserImages { get; set; }
+        public DbSet<Country>  Countries{ get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
+        public DbSet<Employee>  Employees { get; set; }
+        public DbSet<EmployeeMonthlyPayment>  EmployeeMonthlyPayments { get; set; }
 
 
 
@@ -44,6 +50,7 @@ namespace DataAccess.Data.DataContext_Class
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasKey(a => a.Category_Id);
+
 
         }
 

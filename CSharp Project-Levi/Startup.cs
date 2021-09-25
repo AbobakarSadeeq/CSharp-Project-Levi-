@@ -100,6 +100,7 @@ namespace CSharp_Project_Levi
             services.AddTransient<IOSVersionService, OSVersionService>();
             services.AddTransient<IMobileService, MobileService>();
             services.AddTransient<ICarouselService, CarouselService>();
+            services.AddTransient<IUserPhotoService, UserPhotoService>();
 
 
 

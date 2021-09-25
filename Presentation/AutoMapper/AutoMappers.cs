@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Bussiness_Core.Entities;
 using Presentation.ViewModels;
+using Presentation.ViewModels.Identity;
 using Presentation.ViewModels.MobileViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,14 @@ namespace Presentation.AutoMapper
             CreateMap<MobileImages, ImageInsertingViewModel>().ReverseMap();
             CreateMap<NetworksMobile, NetworksMobileViewModel>().ReverseMap();
             CreateMap<Carousel, CarouselViewModel>().ReverseMap();
+            CreateMap<UserImage, PhotoForCreationViewModel>().ReverseMap();
+            CreateMap<UserImage, PhotoForReturnViewModel>().ReverseMap();
+            CreateMap<Country, CountryViewModel>().ReverseMap();
+            CreateMap<City, CityViewModel>().ReverseMap();
+            CreateMap<UserAddress, UserAddressViewModel>().ReverseMap();
+            CreateMap<Employee, EmployeeViewModel>().ReverseMap();
+            CreateMap<EmployeeMonthlyPayment, EmployeeMonthlyPaymentViewModel>().ReverseMap();
+
 
 
 

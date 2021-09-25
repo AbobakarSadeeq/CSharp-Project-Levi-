@@ -84,6 +84,26 @@ namespace DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.City", b =>
+                {
+                    b.Property<int>("CityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CityName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Country_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CityId");
+
+                    b.HasIndex("Country_ID");
+
+                    b.ToTable("Cities");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.Color", b =>
                 {
                     b.Property<int>("Color_Id")
@@ -97,6 +117,21 @@ namespace DataAccess.Migrations
                     b.HasKey("Color_Id");
 
                     b.ToTable("Colors");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.Country", b =>
+                {
+                    b.Property<int>("CountryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CountryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CountryId");
+
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Bussiness_Core.Entities.CustomIdentity", b =>
@@ -162,6 +197,79 @@ namespace DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.Employee", b =>
+                {
+                    b.Property<int>("EmployeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DathOfBirth")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeHireDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HomeAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Modified_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Salary")
+                        .HasColumnType("int");
+
+                    b.Property<string>("User_ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("EmployeeId");
+
+                    b.HasIndex("User_ID")
+                        .IsUnique()
+                        .HasFilter("[User_ID] IS NOT NULL");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.EmployeeMonthlyPayment", b =>
+                {
+                    b.Property<int>("EmployeeMonthlyPaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Employee_ID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Payment")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Payment_At")
+                        .HasColumnType("date");
+
+                    b.HasKey("EmployeeMonthlyPaymentId");
+
+                    b.HasIndex("Employee_ID")
+                        .IsUnique();
+
+                    b.ToTable("EmployeeMonthlyPayments");
                 });
 
             modelBuilder.Entity("Bussiness_Core.Entities.InternetNetwork", b =>
@@ -392,6 +500,36 @@ namespace DataAccess.Migrations
                     b.ToTable("OperatingSystems");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.UserAddress", b =>
+                {
+                    b.Property<int>("UserAddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("City_ID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CompleteAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User_ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserAddressId");
+
+                    b.HasIndex("City_ID");
+
+                    b.HasIndex("User_ID")
+                        .IsUnique()
+                        .HasFilter("[User_ID] IS NOT NULL");
+
+                    b.ToTable("UserAddresses");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.UserImage", b =>
                 {
                     b.Property<int>("Id")
@@ -424,7 +562,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CustomIdentityId");
 
-                    b.ToTable("UserImage");
+                    b.ToTable("UserImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -569,6 +707,37 @@ namespace DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.City", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("Country_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.Employee", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.CustomIdentity", "User")
+                        .WithOne("Employee")
+                        .HasForeignKey("Bussiness_Core.Entities.Employee", "User_ID");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.EmployeeMonthlyPayment", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.Employee", "Employee")
+                        .WithOne("EmployeeMonthlyPayment")
+                        .HasForeignKey("Bussiness_Core.Entities.EmployeeMonthlyPayment", "Employee_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.Mobile", b =>
                 {
                     b.HasOne("Bussiness_Core.Entities.Brand", "Brand")
@@ -659,6 +828,23 @@ namespace DataAccess.Migrations
                     b.Navigation("OperatingSystemss");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.UserAddress", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("City_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Bussiness_Core.Entities.CustomIdentity", "User")
+                        .WithOne("UserAddress")
+                        .HasForeignKey("Bussiness_Core.Entities.UserAddress", "User_ID");
+
+                    b.Navigation("City");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.UserImage", b =>
                 {
                     b.HasOne("Bussiness_Core.Entities.CustomIdentity", "CustomIdentity")
@@ -721,7 +907,16 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Bussiness_Core.Entities.CustomIdentity", b =>
                 {
+                    b.Navigation("Employee");
+
+                    b.Navigation("UserAddress");
+
                     b.Navigation("UserImages");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.Employee", b =>
+                {
+                    b.Navigation("EmployeeMonthlyPayment");
                 });
 
             modelBuilder.Entity("Bussiness_Core.Entities.Mobile", b =>
