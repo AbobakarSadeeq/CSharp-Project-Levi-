@@ -38,6 +38,9 @@ namespace CSharp_Project_Levi.Controllers
             var fullDetails = await _MobileService.GetMobiles();
             return Ok(fullDetails);
         }
+
+
+
         [HttpPost]      
         public async Task<IActionResult> CreateMobile([FromForm]InsertMobileViewModel  insertMobileViewModel)
         {

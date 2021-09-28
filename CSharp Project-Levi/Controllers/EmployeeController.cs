@@ -57,7 +57,9 @@ namespace CSharp_Project_Levi.Controllers
         {
 
             var gettingEmployeeId = await dataContext.Employees.SingleOrDefaultAsync(a => a.EmployeeId == Id);
+            var gettingEmployeeMonthlyData = await dataContext.EmployeeMonthlyPayments.SingleOrDefaultAsync(a => a.Employee_ID == Id);
             dataContext.Employees.Remove(gettingEmployeeId);
+            dataContext.EmployeeMonthlyPayments.Remove(gettingEmployeeMonthlyData);
             await dataContext.SaveChangesAsync();
             var findingUserId = await _userManager.FindByIdAsync(gettingEmployeeId.User_ID);
             await _userManager.DeleteAsync(findingUserId);
@@ -120,6 +122,17 @@ namespace CSharp_Project_Levi.Controllers
 
             await dataContext.Employees.AddAsync(convertingData);
             await dataContext.SaveChangesAsync();
+
+            // Addning Employee Monthly Payment
+            var employeePayment = new EmployeeMonthlyPayment
+            {
+                Payment = false,
+                Payment_At = null,
+                Employee_ID = convertingData.EmployeeId
+            };
+            await dataContext.EmployeeMonthlyPayments.AddAsync(employeePayment);
+            await dataContext.SaveChangesAsync();
+
             return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.EmployeeId}", viewModel);
 
         }
@@ -149,6 +162,26 @@ namespace CSharp_Project_Levi.Controllers
 
             await dataContext.SaveChangesAsync();
             return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.EmployeeId}", viewModel);
+
+        }
+
+        [HttpPut("UpdateEmployeePayment")]
+        public async Task<IActionResult> UpdateEmployeePayment(EmployeeMonthlyPaymentViewModel viewModel)
+        {
+            var gettingEmployeePaymentOldData = await dataContext.EmployeeMonthlyPayments.SingleOrDefaultAsync(a => a.EmployeeMonthlyPaymentId == viewModel.EmployeeMonthlyPaymentId);
+            gettingEmployeePaymentOldData.Payment = viewModel.Payment;
+            gettingEmployeePaymentOldData.Payment_At = DateTime.Now;
+            await dataContext.SaveChangesAsync();
+            return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.EmployeeMonthlyPaymentId}", viewModel);
+
+        }
+
+        [HttpGet("GetEmployeesPayment")]
+        public async Task<IActionResult> GetAllEmployeePayment()
+        {
+            var gettingAllData = await dataContext.EmployeeMonthlyPayments.Include(a=>a.Employee).ToListAsync();
+            var convertingViewModel = mapper.Map<List<EmployeeMonthlyPaymentViewModel>>(gettingAllData);
+            return Ok(convertingViewModel);
 
         }
 

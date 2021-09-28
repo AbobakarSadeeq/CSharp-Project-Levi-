@@ -39,10 +39,5 @@ namespace DataAccess.Data.Repositories_Implementation
         {
             return await _Context.Set<TEntity>().FindAsync(Id);
         }
-
-        public void UpdateSync(TEntity entity)
-        {
-             _Context.Set<TEntity>().UpdateRange(entity);
-        }
     }
 }

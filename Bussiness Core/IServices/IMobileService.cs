@@ -21,6 +21,8 @@ namespace Bussiness_Core.IServices
         Task<MobileImages> DeleteMobileImage(MobileImages  mobileImages);
 
 
+
+
         Task<MobileFrontCamera> GetMobileFrontCamera(int Id);
         Task<MobileFrontCamera> UpdateMobileFrontCamera(MobileFrontCamera OldData, MobileFrontCamera NewData);
         Task<MobileBackCamera> GetMobileBackCamera(int Id);

@@ -12,8 +12,6 @@ namespace Bussiness_Core.IRepositories
         Task<TEntity> GetByKeyAsync(TKey Id);
         Task<TEntity> AddAsync(TEntity entity);
         void DeleteAsync(TEntity entity);
-        void UpdateSync(TEntity entity);
-
 
     }
 }
