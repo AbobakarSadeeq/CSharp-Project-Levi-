@@ -34,6 +34,7 @@ namespace Presentation.AutoMapper
             CreateMap<UserAddress, UserAddressViewModel>().ReverseMap();
             CreateMap<Employee, EmployeeViewModel>().ReverseMap();
             CreateMap<EmployeeMonthlyPayment, EmployeeMonthlyPaymentViewModel>().ReverseMap();
+            CreateMap<EmployeeMonthlyPayment, CreateEmployeeViewModel>().ReverseMap();
 
 
 

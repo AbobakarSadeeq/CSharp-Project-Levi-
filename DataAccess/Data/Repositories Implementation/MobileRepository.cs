@@ -53,7 +53,7 @@ namespace DataAccess.Data.Repositories_Implementation
 
         }
 
-        public async Task<IEnumerable<Mobile>> GetMobiles()
+        public async Task<ICollection<Mobile>> GetMobiles()
         {
             var Data = await _DataContext.Mobiles.Include(a =>a.MobileImagess).
                 Include(a=>a.Color)

@@ -23,7 +23,6 @@ namespace Bussiness_Core.Entities
         [ForeignKey("User")]
         public string User_ID { get; set; }
         public CustomIdentity User { get; set; }
-        public EmployeeMonthlyPayment  EmployeeMonthlyPayment { get; set; }
         public string RoleName { get; set; }
         public DateTime? Modified_At { get; set; }
     }

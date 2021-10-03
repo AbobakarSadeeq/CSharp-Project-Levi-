@@ -38,7 +38,7 @@ namespace DataAccess.Data.Services_Implementation
             return await _unitOfWork._MobileRepository.GetSingleMobile(Id);
         }
 
-        public async Task<IEnumerable<Mobile>> GetMobiles()
+        public async Task<ICollection<Mobile>> GetMobiles()
         {
             return await _unitOfWork._MobileRepository.GetMobiles();
         }

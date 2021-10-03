@@ -8,6 +8,7 @@ using Presentation.ViewModels;
 using Presentation.ViewModels.MobileViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,8 +33,30 @@ namespace CSharp_Project_Levi.Controllers
             return Ok(detailData);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllMobile()
+        [HttpGet("GetMobilesByPagesNo/{pageNo}")]
+        public async Task<IActionResult> GetAllMobile(int pageNo)
+        {
+            var fullDetails = await _MobileService.GetMobiles();
+            if (pageNo == 1)
+            {
+
+              var  firstPage = fullDetails.Take(8);
+                return Ok(new {
+                    mobileData = firstPage,
+                    fullDetails.Count
+                });
+
+            }
+            int skipPageSize = (pageNo - 1) * 8;
+            var otherPages = fullDetails.Skip(skipPageSize).Take(8);
+            return Ok(new{
+                    mobileData = otherPages,
+                    fullDetails.Count
+                });
+        }
+
+        [HttpGet("GetAllsMobile")]
+        public async Task<IActionResult> GetAllsMobile()
         {
             var fullDetails = await _MobileService.GetMobiles();
             return Ok(fullDetails);

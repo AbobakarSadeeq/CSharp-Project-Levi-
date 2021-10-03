@@ -11,7 +11,7 @@ namespace Bussiness_Core.Entities_Repositories
 {
     public interface IMobileRepository : IRepository<int, Mobile>
     {
-        Task<IEnumerable<Mobile>> GetMobiles();
+        Task<ICollection<Mobile>> GetMobiles();
         Task<Mobile> GetSingleMobile(int Id);
         Task<Mobile> InsertingMobileNetwork(Mobile mobile, List<NetworksMobile> NetworkIds, List<MobileFrontCamera> mobileFrontCameras, List<MobileBackCamera> mobileBackCameras, List<IFormFile> File);
         Task<MobileImages> GetSinglePhoto(int Id);

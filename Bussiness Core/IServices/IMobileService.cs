@@ -10,7 +10,7 @@ namespace Bussiness_Core.IServices
 {
     public interface IMobileService
     {
-        Task<IEnumerable<Mobile>> GetMobiles();
+        Task<ICollection<Mobile>> GetMobiles();
         Task<Mobile> GetMobile(int Id);
         Task<MobileImages> GetMobileImage(int Id);
 

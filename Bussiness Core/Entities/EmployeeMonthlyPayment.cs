@@ -11,7 +11,7 @@ namespace Bussiness_Core.Entities
    public class EmployeeMonthlyPayment
     {
         [Key]
-        public int EmployeeMonthlyPaymentId { get; set; }
+        public int EmployeeMonthlyPaymentId {   get; set; }
         public bool Payment { get; set; }
         [Column(TypeName = "date")]
         public DateTime? Payment_At { get; set; }

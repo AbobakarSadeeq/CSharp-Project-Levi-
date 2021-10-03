@@ -21,7 +21,6 @@ namespace CSharp_Project_Levi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<CustomIdentity> userManager;
@@ -57,7 +56,7 @@ namespace CSharp_Project_Levi.Controllers
             }
             else
             {
-                return BadRequest($"UserName Already in Use {model.UserName}");
+                return BadRequest($"Username already taken {model.UserName}");
 
             }
             var findingEmail = await userManager.FindByEmailAsync(model.Email);
@@ -67,7 +66,7 @@ namespace CSharp_Project_Levi.Controllers
             }
             else
             {
-                return BadRequest($"Email Already in Use {model.Email}");
+                return BadRequest($"Email already taken {model.Email}");
             }
             var dataInserting = await userManager.CreateAsync(user, model.Password);
             IdentityResult result = null;
@@ -120,12 +119,12 @@ namespace CSharp_Project_Levi.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { message = "UserName or Password is Incorrect. Please Try Again" });
+                    return BadRequest(new { message = "Username or password is incorrect. please try again" });
                 }
                  
                    
             }
-            return BadRequest("Something going Fishy!");
+            return BadRequest("Something going fishy!");
 
         }
 

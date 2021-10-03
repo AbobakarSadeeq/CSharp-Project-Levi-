@@ -26,6 +26,5 @@ namespace Presentation.ViewModels
         public CustomIdentity User { get; set; }
         public string RoleName { get; set; }
 
-        public EmployeeMonthlyPayment EmployeeMonthlyPayment { get; set; }
     }
 }
