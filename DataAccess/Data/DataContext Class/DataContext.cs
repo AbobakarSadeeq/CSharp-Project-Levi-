@@ -37,6 +37,8 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<UserAddress> UserAddresses { get; set; }
         public DbSet<Employee>  Employees { get; set; }
         public DbSet<EmployeeMonthlyPayment>  EmployeeMonthlyPayments { get; set; }
+       public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
 
@@ -48,6 +50,7 @@ namespace DataAccess.Data.DataContext_Class
             modelBuilder.ApplyConfiguration(new OSVersionConfiguration());
             modelBuilder.ApplyConfiguration(new MobileConfiguration());
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasKey(a => a.Category_Id);
 

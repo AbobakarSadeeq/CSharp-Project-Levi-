@@ -3,6 +3,7 @@ using Bussiness_Core.Entities;
 using Presentation.ViewModels;
 using Presentation.ViewModels.Identity;
 using Presentation.ViewModels.MobileViewModels;
+using Presentation.ViewModels.UserOrderViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace Presentation.AutoMapper
             CreateMap<Employee, EmployeeViewModel>().ReverseMap();
             CreateMap<EmployeeMonthlyPayment, EmployeeMonthlyPaymentViewModel>().ReverseMap();
             CreateMap<EmployeeMonthlyPayment, CreateEmployeeViewModel>().ReverseMap();
+            CreateMap<OrderDetail, AddUserOrderDetailViewModel>().ReverseMap();
 
 
 

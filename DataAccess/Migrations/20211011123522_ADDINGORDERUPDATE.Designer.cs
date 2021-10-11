@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210930060740_updateEmployee")]
-    partial class updateEmployee
+    [Migration("20211011123522_ADDINGORDERUPDATE")]
+    partial class ADDINGORDERUPDATE
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -501,6 +501,63 @@ namespace DataAccess.Migrations
                     b.ToTable("OperatingSystems");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CustomIdentityId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OrderStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderTotalPrice")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ShippedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("CustomIdentityId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Mobile_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Order_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalWithQuantityPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("Mobile_Id");
+
+                    b.HasIndex("Order_Id");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.UserAddress", b =>
                 {
                     b.Property<int>("UserAddressId")
@@ -829,6 +886,34 @@ namespace DataAccess.Migrations
                     b.Navigation("OperatingSystemss");
                 });
 
+            modelBuilder.Entity("Bussiness_Core.Entities.Order", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.CustomIdentity", "CustomIdentity")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomIdentityId");
+
+                    b.Navigation("CustomIdentity");
+                });
+
+            modelBuilder.Entity("Bussiness_Core.Entities.OrderDetail", b =>
+                {
+                    b.HasOne("Bussiness_Core.Entities.Mobile", "Mobile")
+                        .WithMany()
+                        .HasForeignKey("Mobile_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Bussiness_Core.Entities.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("Order_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mobile");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Bussiness_Core.Entities.UserAddress", b =>
                 {
                     b.HasOne("Bussiness_Core.Entities.City", "City")
@@ -909,6 +994,8 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Bussiness_Core.Entities.CustomIdentity", b =>
                 {
                     b.Navigation("Employee");
+
+                    b.Navigation("Orders");
 
                     b.Navigation("UserAddress");
 
