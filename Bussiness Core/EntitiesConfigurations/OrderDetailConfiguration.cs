@@ -16,7 +16,7 @@ namespace Bussiness_Core.EntitiesConfigurations
             builder.HasKey(a => a.OrderDetailId);
 
             // Relationship
-            builder.HasOne(a => a.Order).WithMany().HasForeignKey(a => a.Order_Id);
+            builder.HasOne(a => a.Order).WithMany(a=>a.OrderDetails).HasForeignKey(a => a.Order_Id);
             builder.HasOne(a => a.Mobile).WithMany().HasForeignKey(a => a.Mobile_Id);
 
         }

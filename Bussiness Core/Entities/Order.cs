@@ -19,5 +19,10 @@ namespace Bussiness_Core.Entities
         [ForeignKey("CustomIdentity")]
         public string CustomIdentityId { get; set; }
         public CustomIdentity CustomIdentity { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public Order()
+        {
+            OrderDetails = new List<OrderDetail>();
+        }
     }
 }

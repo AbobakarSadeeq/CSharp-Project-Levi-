@@ -11,10 +11,10 @@ namespace Bussiness_Core.Entities
     {
         public int OrderDetailId { get; set; }
         public int Mobile_Id { get; set; }
-        public Mobile  Mobile { get; set; }
+        public Mobile Mobile { get; set; }
         public int Order_Id { get; set; }
         public Order Order { get; set; }
-        public int TotalWithQuantityPrice { get; set; }
+        public int Price { get; set; }
         public int Quantity { get; set; }
 
     }
