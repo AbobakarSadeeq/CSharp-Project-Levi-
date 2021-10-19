@@ -31,7 +31,7 @@ namespace CSharp_Project_Levi.Controllers
         public AccountController(UserManager<CustomIdentity> myuserManager,
             SignInManager<CustomIdentity> mysignIngManage, IOptions<ApplicationSettings> appSettings, RoleManager<IdentityRole> roleManager, IUserPhotoService userPhotoService)
         {
-            this.userManager = myuserManager;
+            userManager = myuserManager;
             _roleManager = roleManager;
             this.signInManger = mysignIngManage;
             this._appSettings = appSettings.Value;
@@ -121,8 +121,8 @@ namespace CSharp_Project_Levi.Controllers
                 {
                     return BadRequest(new { message = "Username or password is incorrect. please try again" });
                 }
-                 
-                   
+
+
             }
             return BadRequest("Something going fishy!");
 
@@ -144,6 +144,11 @@ namespace CSharp_Project_Levi.Controllers
 
         }
 
-
+        [HttpGet("UserAccountCount")]
+        public IActionResult UserAccountCount()
+        {
+            var getUserCount =  userManager.Users.ToList().Count;
+            return Ok(getUserCount);
+        }
     }
 }
