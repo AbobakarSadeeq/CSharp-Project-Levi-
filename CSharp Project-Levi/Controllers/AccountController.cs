@@ -150,5 +150,9 @@ namespace CSharp_Project_Levi.Controllers
             var getUserCount =  userManager.Users.ToList().Count;
             return Ok(getUserCount);
         }
+
+
+      
+
     }
 }

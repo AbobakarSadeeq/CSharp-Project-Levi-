@@ -37,8 +37,10 @@ namespace DataAccess.Data.DataContext_Class
         public DbSet<UserAddress> UserAddresses { get; set; }
         public DbSet<Employee>  Employees { get; set; }
         public DbSet<EmployeeMonthlyPayment>  EmployeeMonthlyPayments { get; set; }
-       public DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<AccountBalance>  AccountBalances { get; set; }
+
 
 
 

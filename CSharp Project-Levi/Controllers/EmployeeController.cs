@@ -174,6 +174,14 @@ namespace CSharp_Project_Levi.Controllers
             convertViewModel.Payment = viewModel.Payment;
             convertViewModel.Payment_At = viewModel.Payment_At;
 
+            // Subtract the salary from account of employees.
+            var getAccountData = await dataContext.AccountBalances.OrderByDescending(a => a.BalanceAccountId).FirstOrDefaultAsync();
+            var getEmployeeData = await dataContext.Employees.FindAsync(viewModel.EmployeeId);
+            getAccountData.Balance = getAccountData.Balance - getEmployeeData.Salary;
+            getAccountData.Modified_At = DateTime.Now;
+            getAccountData.BalanceAccountId = 0;
+            await dataContext.AccountBalances.AddAsync(getAccountData);
+
             await dataContext.EmployeeMonthlyPayments.AddAsync(convertViewModel);
             await dataContext.SaveChangesAsync();
             return Created($"{Request.Scheme://request.host}{Request.Path}/{viewModel.EmployeeMonthlyPaymentId}", viewModel);

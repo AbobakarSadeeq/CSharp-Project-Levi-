@@ -196,8 +196,48 @@ namespace CSharp_Project_Levi.Controllers
             client.Credentials = new NetworkCredential() { UserName = "abobakarpaen@gmail.com", Password = "kzrcgwljcfpvbpko" };
             client.Send(msgObj);
 
+            // Add the Account Balance Or Modifing balance
 
-          
+            var getAccountData = await _dataContext.AccountBalances.OrderByDescending(a => a.BalanceAccountId).
+                FirstOrDefaultAsync();
+
+            if(getAccountData == null)
+            {
+                var convertAccountData = new AccountBalance();
+                convertAccountData.Balance =  totalPrice;
+                convertAccountData.User_ID = getAccountData.User_ID;
+                convertAccountData.Created_At = DateTime.Now;
+                await _dataContext.AccountBalances.AddAsync(convertAccountData);
+                await _dataContext.SaveChangesAsync();
+            }
+
+            else
+            {
+                if (getAccountData.Created_At.Value.Month < DateTime.Now.Date.Month){
+
+                var convertAccountData = new AccountBalance();
+                convertAccountData.Balance = getAccountData.Balance + totalPrice;
+                convertAccountData.User_ID = getAccountData.User_ID;
+                convertAccountData.Created_At = DateTime.Now;
+
+                await _dataContext.AccountBalances.AddAsync(convertAccountData);
+                await _dataContext.SaveChangesAsync();
+                }
+
+                else{
+                getAccountData.Balance = getAccountData.Balance + totalPrice;
+                getAccountData.Modified_At = DateTime.Now;
+                await _dataContext.SaveChangesAsync();
+                }
+            }
+
+
+
+
+
+
+
+
 
 
 
@@ -325,6 +365,49 @@ namespace CSharp_Project_Levi.Controllers
 
             return Ok(monthtOrders);
         }
+
+        [HttpGet("GetSingleUserOrder/{userId}")]
+        public async Task<IActionResult> GetSingleUserOrder(string userId)
+        {
+            var getSingleUserOrders = await _dataContext.Orders
+              .Include(a => a.CustomIdentity)
+               .ThenInclude(a => a.UserAddress)
+               .ThenInclude(a => a.City)
+               .ThenInclude(a => a.Country)
+               .Include(a => a.OrderDetails)
+              .Where(a => a.CustomIdentityId == userId)
+              .ToListAsync();
+            var convertDataToViewModel = new List<OrderUserAddressViewModel>();
+
+            foreach (var listData in getSingleUserOrders)
+            {
+                convertDataToViewModel.Add(new OrderUserAddressViewModel
+                {
+                    OrderId = listData.OrderId,
+                    UserName = listData.CustomIdentity.UserName,
+                    OrderStatus = listData.OrderStatus,
+                    OrderDate = listData.OrderDate.ToString(),
+                    CountryName = listData.CustomIdentity.UserAddress.City.Country.CountryName,
+                    OrderItemsCount = listData.OrderDetails.Count
+                });
+            }
+
+
+            return Ok(convertDataToViewModel);
+        }
+
+        // Deleting Complete Order By User until admin didnt accept it
+        [HttpDelete("DeleteOrderByUser/{Id}")]
+        public async Task<IActionResult> DeleteOrderByUser(int Id)
+        {
+            var findingOrderById = await _dataContext.Orders.FirstOrDefaultAsync(a => a.OrderId == Id);
+            findingOrderById.OrderStatus = "Canceled";
+            await _dataContext.SaveChangesAsync();
+            return Ok();
+        }
+
+
+
 
     }
 }

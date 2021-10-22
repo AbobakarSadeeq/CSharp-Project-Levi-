@@ -1,7 +1,9 @@
 ﻿using Bussiness_Core.Entities;
+using DataAccess.Data.DataContext_Class;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Presentation.ViewModels.Identity;
 using System;
 using System.Collections.Generic;
@@ -16,10 +18,14 @@ namespace CSharp_Project_Levi.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<CustomIdentity> _userManager;
-        public AdministratorController(RoleManager<IdentityRole> roleManager, UserManager<CustomIdentity> userManager)
+        private readonly DataContext _dataContext;
+
+        public AdministratorController(DataContext dataContext, RoleManager<IdentityRole> roleManager, UserManager<CustomIdentity> userManager)
         {
             this._roleManager = roleManager;
             this._userManager = userManager;
+            _dataContext = dataContext;
+
         }
 
         // Adding Role or when Admin want to add another role this method will invoke in api
@@ -175,6 +181,18 @@ namespace CSharp_Project_Levi.Controllers
                 if (item.IsSelected && !(await _userManager.IsInRoleAsync(user, role.Name)))
                 {
                     result = await _userManager.AddToRoleAsync(user, role.Name);
+
+                    // When new user added to the roll and old one is removed then update the account Id also
+                    if(role.Name == "Admin" || role.Name == "ADMIN")
+                    {
+                        var getLastData = await _dataContext.AccountBalances.OrderByDescending(a => a.BalanceAccountId)
+                        .FirstOrDefaultAsync();
+                        getLastData.User_ID = item.UserId; 
+                        getLastData.Modified_At = DateTime.Now;
+                        await _dataContext.SaveChangesAsync();
+                    }
+
+
                 }
                 else if (!item.IsSelected && await _userManager.IsInRoleAsync(user, role.Name))
                 {
