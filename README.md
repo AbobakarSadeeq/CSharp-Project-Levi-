@@ -9,7 +9,7 @@
 6. Email send on Admin order accepted and more
 7. CRUD of mobile's
 8. Admin can add employees and give the role to them 
-9. You can check it by run it 
+9. You can check it by run it, there is alot more things going on there.
 
 
  Installing this application in another computer
