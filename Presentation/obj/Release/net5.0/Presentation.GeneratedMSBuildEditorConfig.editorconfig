@@ -1,10 +1,10 @@
 is_global = true
 build_property.TargetFramework = net5.0
 build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = CSharp_Project_Levi
-build_property.ProjectDir = C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\CSharp Project-Levi\
+build_property.RootNamespace = Presentation
+build_property.ProjectDir = C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Presentation\
