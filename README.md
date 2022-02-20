@@ -3,9 +3,9 @@
 ## functionality
 1. Order recived to admin
 2. A user can buy a mobile
-3. authentication and authorization
-4. admin and user separate panels
-5. different roles like (Employee, Admin, User)
+3. Authentication and authorization
+4. Admin and user separate panels
+5. Different roles like (Employee, Admin, User)
 6. Email send on Admin order accepted and more
 7. CRUD of mobile's
 8. Admin can add employees and give the role to them 
