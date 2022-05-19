@@ -13,3 +13,18 @@ C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\n
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.pdb
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Bussiness Core.dll
 C:\Users\Abobakar\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Bussiness Core.pdb
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Presentation.deps.json
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Presentation.dll
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Presentation.pdb
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Bussiness Core.dll
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\bin\Debug\net5.0\Bussiness Core.pdb
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfo.cs
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.csproj.CopyComplete
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.dll
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\refint\Presentation.dll
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\Presentation.pdb
+C:\Users\Abobakar Sadeeq\Documents\GitHub\CSharp-Project-Levi-\Presentation\obj\Debug\net5.0\ref\Presentation.dll

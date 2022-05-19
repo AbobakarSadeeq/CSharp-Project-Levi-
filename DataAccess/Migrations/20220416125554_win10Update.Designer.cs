@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211021154537_ADDINGACCOUNTBALANCE")]
-    partial class ADDINGACCOUNTBALANCE
+    [Migration("20220416125554_win10Update")]
+    partial class win10Update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,10 +31,10 @@ namespace DataAccess.Migrations
                     b.Property<int>("Balance")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Created_At")
+                    b.Property<DateTime?>("Created_At")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Modified_At")
+                    b.Property<DateTime?>("Modified_At")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("User_ID")

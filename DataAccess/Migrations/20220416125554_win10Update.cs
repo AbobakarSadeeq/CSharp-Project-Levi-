@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class ADDINGORDERUPDATE : Migration
+    public partial class win10Update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -152,6 +152,28 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AccountBalances",
+                columns: table => new
+                {
+                    BalanceAccountId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Balance = table.Column<int>(type: "int", nullable: false),
+                    User_ID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Created_At = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Modified_At = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AccountBalances", x => x.BalanceAccountId);
+                    table.ForeignKey(
+                        name: "FK_AccountBalances_AspNetUsers_User_ID",
+                        column: x => x.User_ID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -271,7 +293,6 @@ namespace DataAccess.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderTotalPrice = table.Column<int>(type: "int", nullable: false),
                     OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ShippedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -571,7 +592,7 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Mobile_Id = table.Column<int>(type: "int", nullable: false),
                     Order_Id = table.Column<int>(type: "int", nullable: false),
-                    TotalWithQuantityPrice = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -590,6 +611,11 @@ namespace DataAccess.Migrations
                         principalColumn: "OrderId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountBalances_User_ID",
+                table: "AccountBalances",
+                column: "User_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -732,6 +758,9 @@ namespace DataAccess.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AccountBalances");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

@@ -5983,19 +5983,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Abobakar\\.nuget\\packages\\": {}
+    "C:\\Users\\Abobakar Sadeeq\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\Abobakar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Abobakar Sadeeq\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Abobakar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abobakar Sadeeq\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6009,11 +6009,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj": {
-              "projectPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj"
+            "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj": {
+              "projectPath": "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\Bussiness Core\\Bussiness Core.csproj"
             },
-            "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj": {
-              "projectPath": "C:\\Users\\Abobakar\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj"
+            "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj": {
+              "projectPath": "C:\\Users\\Abobakar Sadeeq\\Documents\\GitHub\\CSharp-Project-Levi-\\Presentation\\Presentation.csproj"
             }
           }
         }
@@ -6076,7 +6076,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
